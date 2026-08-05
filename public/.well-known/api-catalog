@@ -25,6 +25,30 @@
       ]
     },
     {
+      "anchor": "https://sanad.im/a2a",
+      "service-desc": [
+        {
+          "href": "https://sanad.im/.well-known/agent-card.json",
+          "type": "application/json",
+          "title": "A2A agent card"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://sanad.im/llms.txt",
+          "type": "text/markdown",
+          "title": "Sanad overview for agents"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://sanad.im/.well-known/agent-card.json",
+          "type": "application/json",
+          "title": "Agent card doubles as the liveness document"
+        }
+      ]
+    },
+    {
       "anchor": "https://sanad.im/",
       "service-desc": [
         {
@@ -52,9 +76,21 @@
           "title": "Agent skills index"
         }
       ],
-      "author": [{ "href": "mailto:hello@sanad.im" }],
-      "privacy-policy": [{ "href": "https://sanad.im/privacy" }],
-      "terms-of-service": [{ "href": "https://sanad.im/terms" }]
+      "author": [
+        {
+          "href": "mailto:hello@sanad.im"
+        }
+      ],
+      "privacy-policy": [
+        {
+          "href": "https://sanad.im/privacy"
+        }
+      ],
+      "terms-of-service": [
+        {
+          "href": "https://sanad.im/terms"
+        }
+      ]
     }
   ]
 }

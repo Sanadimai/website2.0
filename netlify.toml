@@ -33,6 +33,11 @@
   function = "mcp"
   path = "/mcp"
 
+# A2A agent endpoint.
+[[edge_functions]]
+  function = "a2a"
+  path = "/a2a"
+
 # RFC 8288 Link headers: agent-discoverable resources, advertised before an
 # agent has to parse any HTML.
 
