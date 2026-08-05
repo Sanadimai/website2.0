@@ -5,6 +5,9 @@ import "./globals.css";
 // Google Analytics 4 — one tag, loaded on every page via the root layout.
 const GA_ID = "G-GTX7XB2CKG";
 
+// Microsoft Clarity — session recordings and heatmaps.
+const CLARITY_ID = "xxjy84ucnt";
+
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
@@ -107,6 +110,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', '${GA_ID}');`,
+          }}
+        />
+        {/* Microsoft Clarity */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "${CLARITY_ID}");`,
           }}
         />
         {/* Framer Motion SSRs reveal states as inline opacity:0 — without JS
