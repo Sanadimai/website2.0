@@ -1,4 +1,6 @@
 import { Bento } from "@/components/bento";
+import { Compare } from "@/components/compare";
+import { LeadCapture } from "@/components/lead-capture";
 import { FactStrip } from "@/components/fact-strip";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
@@ -28,11 +30,13 @@ export function Site({ lang }: { lang: Lang }) {
         <Bento />
         <Features />
         <Honesty />
+        <Compare />
         <Security />
         <How />
         <Pricing />
         <Founders />
         <Faq />
+        <LeadCapture />
         <FinalCta />
       </main>
       <Footer />

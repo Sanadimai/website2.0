@@ -1,17 +1,28 @@
 // The <html> tag lives in the single root layout, so Next emits lang="en"
-// dir="ltr" for every exported page. Rewrite it on the Arabic page only, so
+// dir="ltr" for every exported page. Rewrite it on every Arabic page, so
 // crawlers read the correct language and direction straight from the HTML,
 // without executing any JavaScript.
 import { readFile, writeFile } from "node:fs/promises";
 
-const file = new URL("../out/ar.html", import.meta.url);
-const html = await readFile(file, "utf8");
-const patched = html.replace(/<html lang="en" dir="ltr"/, '<html lang="ar" dir="rtl"');
+const OUT = new URL("../out/", import.meta.url);
 
-if (patched === html) {
-  console.error('postbuild: <html lang="en" dir="ltr"> not found in out/ar.html');
-  process.exit(1);
+// Every Arabic route emitted by the export. Add here when a new /ar page ships.
+const ARABIC_PAGES = ["ar.html", "ar/privacy.html", "ar/terms.html", "ar/dpa.html"];
+
+let patchedCount = 0;
+
+for (const page of ARABIC_PAGES) {
+  const file = new URL(page, OUT);
+  const html = await readFile(file, "utf8");
+  const patched = html.replace(/<html lang="en" dir="ltr"/, '<html lang="ar" dir="rtl"');
+
+  if (patched === html) {
+    console.error(`postbuild: <html lang="en" dir="ltr"> not found in out/${page}`);
+    process.exit(1);
+  }
+
+  await writeFile(file, patched);
+  patchedCount += 1;
 }
 
-await writeFile(file, patched);
-console.log('postbuild: out/ar.html -> lang="ar" dir="rtl"');
+console.log(`postbuild: ${patchedCount} Arabic pages -> lang="ar" dir="rtl"`);

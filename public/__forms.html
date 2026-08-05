@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sanad — form definitions</title>
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <!--
+      Netlify's build bot parses this static file to register the form. The React
+      component in components/lead-capture.tsx posts url-encoded data to this
+      path. Nothing here is ever shown to a visitor.
+    -->
+    <form name="checklist" data-netlify="true" data-netlify-honeypot="company" hidden>
+      <input type="hidden" name="form-name" value="checklist" />
+      <input type="text" name="clinic" />
+      <input type="email" name="email" />
+      <input type="text" name="company" />
+    </form>
+  </body>
+</html>

@@ -6,6 +6,7 @@ import { T, useOtherLang, useT } from "@/components/lang";
 const LINKS = [
   { href: "#how", en: "How it works", ar: "كيف يعمل" },
   { href: "#honesty", en: "Honest numbers", ar: "أرقام صادقة" },
+  { href: "#compare", en: "Compare", ar: "المقارنة" },
   { href: "#security", en: "Security", ar: "الأمان" },
   { href: "#pricing", en: "Pricing", ar: "الأسعار" },
   { href: "#faq", en: "FAQ", ar: "الأسئلة" },

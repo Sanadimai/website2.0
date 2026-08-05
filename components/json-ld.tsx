@@ -1,5 +1,5 @@
 import type { Lang } from "@/components/lang";
-import { FAQS, PLANS } from "@/lib/content";
+import { FAQS, PLANS, SOCIALS } from "@/lib/content";
 
 export const SITE = "https://sanad.im";
 
@@ -23,6 +23,8 @@ export function JsonLd({ lang }: { lang: Lang }) {
       ? "موظف استقبال ذكي يعمل بالصوت أولًا عبر واتساب لعيادات الأسنان والتجميل في دبي."
       : "Voice-first WhatsApp AI receptionist for dental and aesthetics clinics in Dubai.",
     logo: `${SITE}/og.png`,
+    // Omitted entirely when empty — an empty sameAs array is a negative signal.
+    ...(SOCIALS.length ? { sameAs: SOCIALS } : {}),
     areaServed: { "@type": "City", name: "Dubai", containedInPlace: { "@type": "Country", name: "United Arab Emirates" } },
     address: { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" },
     contactPoint: {

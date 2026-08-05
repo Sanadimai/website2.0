@@ -3,9 +3,9 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { FileText, MessageSquareText, ShieldCheck } from "lucide-react";
 import Link from "next/link";
-import { T } from "@/components/lang";
+import { T, useLang } from "@/components/lang";
 import { Brand, Btn, Eyebrow, Reveal, SectionTitle } from "@/components/site-ui";
-import { FAQS, PLANS } from "@/lib/content";
+import { FAQS, FOUNDING_SLOTS_OPEN, FOUNDING_SLOTS_TOTAL, PLANS } from "@/lib/content";
 
 /* ------------------------------------------------------------------ FEATURES */
 
@@ -559,24 +559,33 @@ export function FinalCta() {
               </Btn>
             </div>
 
+            {/* Slot counter — driven by FOUNDING_SLOTS_OPEN in lib/content.ts.
+                Update that one number as slots fill; a stale counter is worse
+                than none, because it is the only claim on this page a prospect
+                can check against what you tell them on a call. */}
             <div
               className="mt-7 inline-flex gap-1.5"
               role="img"
-              aria-label="10 of 10 founding slots open"
+              aria-label={`${FOUNDING_SLOTS_OPEN} of ${FOUNDING_SLOTS_TOTAL} founding slots open`}
             >
-              {Array.from({ length: 10 }).map((_, i) => (
+              {Array.from({ length: FOUNDING_SLOTS_TOTAL }).map((_, i) => (
                 <motion.span
                   key={i}
                   initial={reduced ? false : { scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.05, ease: "easeOut" }}
-                  className="h-2 w-[26px] origin-left rounded bg-gold"
+                  className={`h-2 w-[26px] origin-left rounded ${
+                    i < FOUNDING_SLOTS_OPEN ? "bg-gold" : "bg-white/20"
+                  }`}
                 />
               ))}
             </div>
             <div className="mt-2.5 text-[0.8rem] text-[#b9ccc2]">
-              <T en="10 of 10 founding slots open" ar="١٠ من ١٠ مقاعد تأسيسية متاحة" />
+              <T
+                en={`${FOUNDING_SLOTS_OPEN} of ${FOUNDING_SLOTS_TOTAL} founding slots open`}
+                ar={`${FOUNDING_SLOTS_OPEN.toLocaleString("ar-EG")} من ${FOUNDING_SLOTS_TOTAL.toLocaleString("ar-EG")} مقاعد تأسيسية متاحة`}
+              />
             </div>
           </div>
         </div>
@@ -586,6 +595,8 @@ export function FinalCta() {
 }
 
 export function Footer() {
+  const lang = useLang();
+  const p = (path: string) => (lang === "ar" ? `/ar${path}` : path);
   return (
     <footer className="border-t border-border py-12">
       <div className="mx-auto max-w-[1160px] px-7">
@@ -597,6 +608,15 @@ export function Footer() {
             </Link>
             <Link href="#security">
               <T en="Security" ar="الأمان" />
+            </Link>
+            <Link href={p("/privacy")}>
+              <T en="Privacy" ar="الخصوصية" />
+            </Link>
+            <Link href={p("/terms")}>
+              <T en="Terms" ar="الشروط" />
+            </Link>
+            <Link href={p("/dpa")}>
+              <T en="Data processing" ar="معالجة البيانات" />
             </Link>
             <a href="mailto:hello@sanad.im">hello@sanad.im</a>
             <span>

@@ -88,4 +88,87 @@ export const FAQS = [
     en: ["What exactly does the monthly report show?", "One headline number: bookings Sanad provably originated, tagged at booking time — plus the assisted and staff numbers shown separately. Every line is auditable against the conversation log if you ever want to check."],
     ar: ["ماذا يعرض التقرير الشهري تحديدًا؟", "رقم رئيسي واحد: الحجوزات التي أنشأها سند بشكل مثبت، موسومة لحظة حدوثها — مع عرض حجوزات المساعدة والموظفين منفصلة. وكل سطر قابل للتدقيق مقابل سجل المحادثات متى شئت."],
   },
+  {
+    en: ["We tried a chatbot before and it was useless.", "That is the most common story we hear, and usually for the same three reasons: it was built once and never maintained, nobody owned the Arabic, and it reported nothing you could check. Ask any vendor the three questions that would have caught it — who runs it, whose number is it on, and where does the data live — then ask to see a live conversation in Arabic before you pay anything."],
+    ar: ["جرّبنا بوتًا من قبل ولم يكن مفيدًا.", "هذه أكثر قصة نسمعها، وعادةً للأسباب الثلاثة نفسها: بُني مرة واحدة ولم يُصَن، ولم يتولَّ أحد جودة العربية، ولم يقدّم رقمًا يمكنك التحقق منه. اسأل أي مزوّد الأسئلة الثلاثة التي كانت ستكشفه — من يشغّله، وعلى أي رقم، وأين تُخزَّن البيانات — ثم اطلب مشاهدة محادثة حية بالعربية قبل أن تدفع شيئًا."],
+  },
+  {
+    en: ["We already use a booking platform like Okadoc or Vezeeta.", "Keep it. Those platforms bring you new patients; Sanad answers the patients who already message your own number — after hours, in Arabic, and about the appointments already in your book. Different jobs, and we never compete for your patient relationship."],
+    ar: ["نستخدم منصة حجز مثل أوكادوك أو فيزيتا.", "احتفظ بها. تلك المنصات تجلب مرضى جددًا، أما سند فيرد على من يراسل رقمك أنت أصلًا — خارج الدوام، وبالعربية، وبشأن المواعيد الموجودة في جدولك فعلًا. وظيفتان مختلفتان، ولا ننافسك على علاقتك بمريضك أبدًا."],
+  },
+];
+
+/** Founding-cohort counter. Update this one number as slots fill — it drives the
+ *  bars and the label in the final CTA. A stale counter is worse than none. */
+export const FOUNDING_SLOTS_TOTAL = 10;
+export const FOUNDING_SLOTS_OPEN = 10;
+
+/** The five questions that decide this category, and how each option answers them.
+ *  Factual, category-level — no competitor is named or disparaged. */
+export const COMPARE = {
+  cols: [
+    { en: "Sanad", ar: "سند" },
+    { en: "DIY WhatsApp software", ar: "برامج واتساب الذاتية" },
+    { en: "Booking marketplaces", ar: "منصات الحجز" },
+    { en: "Agency chatbot project", ar: "بوت من وكالة" },
+  ],
+  rows: [
+    {
+      q: { en: "Who runs it?", ar: "من يشغّله؟" },
+      v: [
+        { en: "We do — done for you", ar: "نحن — جاهز بالكامل" },
+        { en: "Someone at your clinic", ar: "أحد موظفي عيادتك" },
+        { en: "The platform, for its own funnel", ar: "المنصة، لقمعها هي" },
+        { en: "Nobody, after handover", ar: "لا أحد بعد التسليم" },
+      ],
+    },
+    {
+      q: { en: "Whose number is it on?", ar: "على أي رقم؟" },
+      v: [
+        { en: "Your own clinic number", ar: "رقم عيادتك أنت" },
+        { en: "Your number, your setup", ar: "رقمك، وإعدادك أنت" },
+        { en: "Theirs — they own the patient", ar: "رقمهم — ويملكون المريض" },
+        { en: "Varies by project", ar: "يختلف حسب المشروع" },
+      ],
+    },
+    {
+      q: { en: "Where does patient data live?", ar: "أين تُخزَّن بيانات المرضى؟" },
+      v: [
+        { en: "In the UAE, by architecture + signed DPA", ar: "داخل الإمارات بحكم التصميم، مع اتفاقية موقّعة" },
+        { en: "Usually offshore; no DPA at small-business tier", ar: "غالبًا خارج الدولة، وبلا اتفاقية للشريحة الصغيرة" },
+        { en: "On their platform", ar: "على منصتهم" },
+        { en: "Rarely documented", ar: "نادرًا ما تُوثَّق" },
+      ],
+    },
+    {
+      q: { en: "Arabic quality — who is accountable?", ar: "جودة العربية — من المسؤول عنها؟" },
+      v: [
+        { en: "A named reviewer signs off before go-live", ar: "مراجع باسمه يعتمدها قبل الإطلاق" },
+        { en: "Unmanaged — whatever the model returns", ar: "غير مُدارة — ما ينتجه النموذج" },
+        { en: "Interface localised, not the reception", ar: "الواجهة موطّنة لا الاستقبال" },
+        { en: "Unmanaged after delivery", ar: "غير مُدارة بعد التسليم" },
+      ],
+    },
+    {
+      q: { en: "How is value proved?", ar: "كيف تُثبَت القيمة؟" },
+      v: [
+        { en: "Monthly report — provable bookings only", ar: "تقرير شهري — حجوزات مُثبتة فقط" },
+        { en: "Message and session counts", ar: "عدد الرسائل والجلسات" },
+        { en: "Bookings they sold you", ar: "حجوزات باعوها لك" },
+        { en: "No ongoing reporting", ar: "بلا تقارير مستمرة" },
+      ],
+    },
+  ],
+};
+
+/**
+ * Public profiles for schema.org `sameAs` — how Google and AI assistants confirm
+ * Sanad is a real, linked entity rather than a parked domain.
+ * Paste full URLs (https://www.linkedin.com/company/... etc). Empty = omitted.
+ */
+export const SOCIALS: string[] = [
+  "https://www.instagram.com/sanadimai/",
+  "https://www.facebook.com/profile.php?id=61592784626206",
+  // TODO: add the X profile URL (https://x.com/<handle>) — x.com/home is a
+  // logged-in feed, not a public profile, so it cannot be used here.
 ];
