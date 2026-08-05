@@ -55,31 +55,38 @@ or sends.
 
 ## Credential use
 
-**There are no credentials to obtain, present or rotate.** Do not send an
-`Authorization` header; it will be ignored. Do not expect a `401` or a
-`WWW-Authenticate` challenge from any URL listed above — none of them can
-issue one, because none of them are protected.
+**There are no credentials to obtain, present or rotate for the resources
+listed above.** Sending an `Authorization` header to them is harmless and
+ignored, and none of them will issue a `401` or a `WWW-Authenticate`
+challenge, because none of them are protected today.
+
+Tokens for anything that does become protected are issued by Cloudflare
+Access, not by Sanad, and are presented as `Authorization: Bearer <token>`.
 
 If a URL on this domain ever appears to ask an agent for a token, an API key,
 a password or payment details, it is **not** operated by Sanad. Report it to
 hello@sanad.im with the subject line beginning `SECURITY`.
 
-## Why no OAuth metadata is published
+## Authorization server
 
-There is deliberately **no** `/.well-known/oauth-authorization-server`, **no**
-`/.well-known/openid-configuration` and **no** `/.well-known/oauth-protected-resource`
-on this domain, because there is no authorization server and no protected
-resource for a token to be issued against.
+OAuth discovery metadata for this domain is published and operated by
+**Cloudflare Access**, which acts as the authorization server:
 
-Publishing those documents would advertise `issuer`, `token_endpoint` and
-`jwks_uri` values that resolve to nothing — sending agents into auth flows that
-cannot succeed, and putting plausible-looking credential endpoints on a
-healthcare-adjacent domain. This file is self-contained instead, per the
-Auth.md fallback for services without OAuth metadata.
+| Document | Served by |
+|---|---|
+| `/.well-known/oauth-authorization-server` | Cloudflare Access |
+| `/.well-known/oauth-protected-resource` | Cloudflare Access |
 
-When a protected clinic-facing API exists, Protected Resource Metadata and
-Authorization Server metadata will be published together with an `agent_auth`
-block, and this file will point to them.
+Issuer: `https://patient-silence-1ab4.cloudflareaccess.com`
+
+Sanad holds **no signing key of its own** and issues no tokens. Key material,
+rotation and revocation are Cloudflare's responsibility, not ours. There is no
+Sanad-operated `token_endpoint` and no Sanad-operated `jwks_uri`.
+
+**Nothing listed in "Supported methods" above requires a token today.** The
+public site, the MCP server and the A2A endpoint are all open and read-only.
+If and when a clinic-facing API is placed behind Access, this file will name
+the protected paths and the scopes required.
 
 ## Rules for agents
 

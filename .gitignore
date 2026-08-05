@@ -42,3 +42,9 @@ next-env.d.ts
 
 # session history (local only)
 .remember/
+
+# local scratch (never commit: holds the signing key)
+.scratch/
+
+# Local Netlify folder
+.netlify
