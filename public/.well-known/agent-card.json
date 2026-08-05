@@ -1,9 +1,21 @@
 {
   "protocolVersion": "0.3.0",
   "name": "Sanad",
-  "description": "Answers questions about Sanad — the voice-first WhatsApp AI receptionist for dental and aesthetics clinics in Dubai, UAE. Read-only: returns published pricing, product overview and demo-booking guidance. Never gives medical advice.",
+  "description": "Answers questions about Sanad \u2014 the voice-first WhatsApp AI receptionist for dental and aesthetics clinics in Dubai, UAE. Read-only: returns published pricing, product overview and demo-booking guidance. Never gives medical advice.",
   "url": "https://sanad.im/a2a",
   "preferredTransport": "JSONRPC",
+  "supportedInterfaces": [
+    {
+      "url": "https://sanad.im/a2a",
+      "transport": "JSONRPC"
+    }
+  ],
+  "additionalInterfaces": [
+    {
+      "url": "https://sanad.im/a2a",
+      "transport": "JSONRPC"
+    }
+  ],
   "version": "1.0.0",
   "documentationUrl": "https://sanad.im/llms.txt",
   "iconUrl": "https://sanad.im/og.png",
@@ -16,8 +28,13 @@
     "pushNotifications": false,
     "stateTransitionHistory": false
   },
-  "defaultInputModes": ["text/plain"],
-  "defaultOutputModes": ["text/plain", "text/markdown"],
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "text/markdown"
+  ],
   "securitySchemes": {},
   "security": [],
   "skills": [
@@ -25,40 +42,68 @@
       "id": "overview",
       "name": "Sanad overview",
       "description": "What Sanad is, who it is for, what it handles, its boundaries (never medical advice), security posture and booking-attribution model.",
-      "tags": ["overview", "product", "security", "dubai", "clinics"],
+      "tags": [
+        "overview",
+        "product",
+        "security",
+        "dubai",
+        "clinics"
+      ],
       "examples": [
         "What is Sanad?",
         "Does Sanad replace my receptionist?",
         "Where does patient data go?"
       ],
-      "inputModes": ["text/plain"],
-      "outputModes": ["text/markdown"]
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/markdown"
+      ]
     },
     {
       "id": "pricing",
       "name": "Pricing",
       "description": "Founding-cohort pricing in AED for Starter, Growth and Clinic OS: setup, monthly, included interactions and payment terms.",
-      "tags": ["pricing", "plans", "aed", "cost"],
+      "tags": [
+        "pricing",
+        "plans",
+        "aed",
+        "cost"
+      ],
       "examples": [
         "How much does Sanad cost?",
         "What is included in the Growth plan?",
         "What are the payment terms?"
       ],
-      "inputModes": ["text/plain"],
-      "outputModes": ["text/markdown"]
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/markdown"
+      ]
     },
     {
       "id": "book-demo",
       "name": "How to book a demo",
       "description": "How a Dubai dental or aesthetics clinic requests a 15-minute demo, what it covers, and what to tell the owner beforehand.",
-      "tags": ["demo", "contact", "sales", "onboarding"],
+      "tags": [
+        "demo",
+        "contact",
+        "sales",
+        "onboarding"
+      ],
       "examples": [
         "How do I book a demo?",
         "How do I contact Sanad?",
         "How fast can we go live?"
       ],
-      "inputModes": ["text/plain"],
-      "outputModes": ["text/markdown"]
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/markdown"
+      ]
     }
   ],
   "supportsAuthenticatedExtendedCard": false
