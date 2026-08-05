@@ -74,6 +74,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Sanadimai",
+    creator: "@Sanadimai",
     title: "Sanad — Voice-first AI receptionist for Dubai clinics",
     description:
       "Patients send WhatsApp voice notes in Gulf Arabic. Sanad listens, replies in seconds and books the appointment — 24/7.",

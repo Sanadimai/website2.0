@@ -169,6 +169,5 @@ export const COMPARE = {
 export const SOCIALS: string[] = [
   "https://www.instagram.com/sanadimai/",
   "https://www.facebook.com/profile.php?id=61592784626206",
-  // TODO: add the X profile URL (https://x.com/<handle>) — x.com/home is a
-  // logged-in feed, not a public profile, so it cannot be used here.
+  "https://x.com/Sanadimai",
 ];
