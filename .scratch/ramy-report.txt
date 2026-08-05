@@ -1,0 +1,122 @@
+Ramy,
+
+Status on sanad.im. Site is live, rebuilt from scratch, deploying automatically from GitHub. Below is what shipped, what I deliberately did not ship, and three items that need your call.
+
+--------------------------------------------------------------------
+1. WHAT IS LIVE
+--------------------------------------------------------------------
+
+Stack: Next.js 16 (static export) + TypeScript + Tailwind, hosted on Netlify,
+fronted by Cloudflare. Repo: github.com/Sanadimai/website2.0 (private).
+Every push to main now builds and publishes on its own.
+
+Pages (8): / and /ar, plus privacy, terms and dpa in both languages.
+Arabic is a real prerendered URL with lang="ar" dir="rtl" in the raw HTML,
+not a JavaScript toggle, so crawlers and agents see it without running JS.
+
+All copy is taken verbatim from the original page. Nothing about the product
+was invented, including the boundaries: never medical advice, does not replace
+the receptionist, and every "illustrative" figure is labelled as a worked
+example rather than a client result.
+
+--------------------------------------------------------------------
+2. SEO AND AI DISCOVERY
+--------------------------------------------------------------------
+
+- hreflang pairs across all 8 pages, canonical URLs, sitemap.xml
+- robots.txt naming 30 AI crawlers with an explicit Allow
+- JSON-LD: Organization (with founders and the three social profiles),
+  WebSite, Service with the AED offers, and FAQPage
+- llms.txt: a plain-language brief written specifically so a model quoting
+  Sanad states the boundaries correctly
+- RFC 8288 Link headers advertising the machine-readable resources
+- Accept: text/markdown on / or /ar returns a markdown edition of the page
+  (Netlify edge function); browsers still get HTML
+- /.well-known/agents/index.json, /.well-known/agent-skills/index.json with
+  sha256 digests, /.well-known/api-catalog (RFC 9727)
+
+One thing worth knowing: DNS already advertised _index._agents.sanad.im
+pointing at /.well-known/agents/index.json, but that URL returned 404. Every
+agent following the DNS record hit a dead end. It now resolves.
+
+--------------------------------------------------------------------
+3. MCP SERVER (new, and your area)
+--------------------------------------------------------------------
+
+There is now a real MCP server at https://sanad.im/mcp — Streamable HTTP,
+JSON-RPC 2.0, running as a Netlify edge function.
+
+Three tools, all read-only: get_overview, get_pricing, how_to_book_demo.
+
+Security properties, deliberate:
+- No write path. Nothing books, pays, stores or emails.
+- No authentication, because there is nothing to protect. Stated explicitly
+  in the server card and in /auth.md.
+- Each tool fetches a document the site already publishes at call time, so
+  the server cannot drift from the website and there is no second copy of
+  pricing to fall out of date.
+- No user data is received or logged.
+
+Verified end to end against production: initialize, tools/list and tools/call
+all return correctly.
+
+--------------------------------------------------------------------
+4. WHAT I REFUSED TO PUBLISH
+--------------------------------------------------------------------
+
+An audit tool flagged us for missing OAuth/OIDC discovery metadata:
+/.well-known/oauth-authorization-server, /.well-known/openid-configuration
+and /.well-known/oauth-protected-resource.
+
+I did not publish them. We have no authorization server and no protected
+resource. Those documents would advertise token endpoints that do not exist,
+sending agents into failing auth flows and putting plausible-looking auth
+URLs on a healthcare-adjacent domain. That is a phishing and confusion
+surface in exchange for a score point.
+
+Instead /auth.md states plainly that nothing is credentialed, lists every
+public resource, and says the OAuth documents will appear only when a real
+protected API does. If you disagree, it is a short change — but I wanted the
+decision to be yours rather than an audit checklist's.
+
+--------------------------------------------------------------------
+5. THREE ITEMS NEEDING A DECISION
+--------------------------------------------------------------------
+
+(a) DNSSEC is half-configured.
+    Cloudflare has signed the zone — DNSKEY records exist (algorithm 13).
+    But there is no DS record at the .im registrar, so the chain of trust is
+    broken and validating resolvers cannot authenticate our records. This is
+    why the audit says "DNS-AID records found, but DNSSEC was not validated".
+    Fix: Cloudflare dashboard, DNS > Settings > DNSSEC, copy the DS record,
+    add it at the registrar. Ten minutes, no code.
+
+(b) Cloudflare is contradicting our AI policy.
+    Our robots.txt now carries two conflicting Content-Signal lines:
+      Cloudflare's:  search=yes, ai-train=no, use=reference
+      Ours:          ai-train=yes, search=yes, ai-input=yes
+    Cloudflare injects theirs automatically and it appears first. We are
+    simultaneously inviting and refusing model training. Needs a decision on
+    which we mean, then disable the Cloudflare injection or align ours.
+
+(c) Analytics and PDPL.
+    Google Analytics 4 (G-GTX7XB2CKG) and Microsoft Clarity (xxjy84ucnt) are
+    both live on every page. Both set cookies; Clarity records sessions,
+    including the lead-capture form. Clarity masks input values by default,
+    but given that we sell on data-protection posture, we should confirm
+    masking in Clarity settings, name both processors in the privacy page,
+    and decide whether a consent banner is required before we point UAE and
+    EU clinic owners at the site. I can add a banner that holds both tags
+    until a visitor accepts — say the word.
+
+--------------------------------------------------------------------
+6. STILL OPEN
+--------------------------------------------------------------------
+
+- Submit sitemap.xml in Search Console and Bing Webmaster Tools (domain is
+  DNS-verified already; nothing is crawled until this is done)
+- Netlify Analytics is not enabled; it would count AI crawler hits
+  server-side without any additional JavaScript or cookies
+- The X profile link is live, but the account itself is still empty
+
+Ahmed
