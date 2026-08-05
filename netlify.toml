@@ -30,15 +30,7 @@
 
 # RFC 8288 Link headers: agent-discoverable resources, advertised before an
 # agent has to parse any HTML.
-[[headers]]
-  for = "/"
-  [headers.values]
-    Link = """</index.md>; rel="alternate"; type="text/markdown", </llms.txt>; rel="describedby"; type="text/markdown", </.well-known/agents/index.json>; rel="service-desc"; type="application/json", </.well-known/agent-skills/index.json>; rel="service-meta"; type="application/json", </ar>; rel="alternate"; hreflang="ar-AE", </sitemap.xml>; rel="sitemap"; type="application/xml", </privacy>; rel="privacy-policy", </terms>; rel="terms-of-service", <https://sanad.im/>; rel="canonical""""
 
-[[headers]]
-  for = "/ar"
-  [headers.values]
-    Link = """</ar/index.md>; rel="alternate"; type="text/markdown", </llms.txt>; rel="describedby"; type="text/markdown", </.well-known/agents/index.json>; rel="service-desc"; type="application/json", </.well-known/agent-skills/index.json>; rel="service-meta"; type="application/json", </>; rel="alternate"; hreflang="en-AE", </sitemap.xml>; rel="sitemap"; type="application/xml", </ar/privacy>; rel="privacy-policy", </ar/terms>; rel="terms-of-service", <https://sanad.im/ar>; rel="canonical""""
 
 # JSON discovery documents must not be sniffed as anything else.
 [[headers]]
@@ -52,3 +44,15 @@
   [headers.values]
     content-type = "text/markdown; charset=utf-8"
     access-control-allow-origin = "*"
+
+# RFC 8288 Link headers — agent-discoverable resources, advertised before an
+# agent has to parse any HTML. Literal TOML strings: the values contain quotes.
+[[headers]]
+  for = "/"
+  [headers.values]
+    Link = '</index.md>; rel="alternate"; type="text/markdown", </llms.txt>; rel="describedby"; type="text/markdown", </.well-known/agents/index.json>; rel="service-desc"; type="application/json", </.well-known/agent-skills/index.json>; rel="service-meta"; type="application/json", </ar>; rel="alternate"; hreflang="ar-AE", </sitemap.xml>; rel="sitemap"; type="application/xml", </privacy>; rel="privacy-policy", </terms>; rel="terms-of-service", <https://sanad.im/>; rel="canonical"'
+
+[[headers]]
+  for = "/ar"
+  [headers.values]
+    Link = '</ar/index.md>; rel="alternate"; type="text/markdown", </llms.txt>; rel="describedby"; type="text/markdown", </.well-known/agents/index.json>; rel="service-desc"; type="application/json", </.well-known/agent-skills/index.json>; rel="service-meta"; type="application/json", </>; rel="alternate"; hreflang="en-AE", </sitemap.xml>; rel="sitemap"; type="application/xml", </ar/privacy>; rel="privacy-policy", </ar/terms>; rel="terms-of-service", <https://sanad.im/ar>; rel="canonical"'
