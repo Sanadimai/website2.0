@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Fraunces, IBM_Plex_Sans, IBM_Plex_Sans_Arabic } from "next/font/google";
 import "./globals.css";
 
+// Google Analytics 4 — one tag, loaded on every page via the root layout.
+const GA_ID = "G-GTX7XB2CKG";
+
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
@@ -96,6 +99,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${fraunces.variable} ${plex.variable} ${plexArabic.variable} h-full`}
     >
       <head>
+        {/* Google tag (gtag.js) — first thing in <head>, exactly one per page. */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`,
+          }}
+        />
         {/* Framer Motion SSRs reveal states as inline opacity:0 — without JS
             that would hide most of the page from readers and crawlers. */}
         <noscript>
