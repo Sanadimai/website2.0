@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import { Fraunces, IBM_Plex_Sans, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { ConsentGate } from "@/components/consent";
 import "./globals.css";
 
-// Google Analytics 4 — one tag, loaded on every page via the root layout.
-const GA_ID = "G-GTX7XB2CKG";
 
-// Microsoft Clarity — session recordings and heatmaps.
-const CLARITY_ID = "xxjy84ucnt";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -102,33 +99,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${fraunces.variable} ${plex.variable} ${plexArabic.variable} h-full`}
     >
       <head>
-        {/* Google tag (gtag.js) — first thing in <head>, exactly one per page. */}
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${GA_ID}');`,
-          }}
-        />
-        {/* Microsoft Clarity */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(c,l,a,r,i,t,y){
-c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-})(window, document, "clarity", "script", "${CLARITY_ID}");`,
-          }}
-        />
         {/* Framer Motion SSRs reveal states as inline opacity:0 — without JS
             that would hide most of the page from readers and crawlers. */}
         <noscript>
           <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <ConsentGate />
+      </body>
     </html>
   );
 }

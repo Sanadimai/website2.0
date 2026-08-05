@@ -3,8 +3,8 @@
   "serverInfo": {
     "name": "sanad",
     "title": "Sanad",
-    "version": "1.0.0",
-    "description": "Read-only MCP server for Sanad — the voice-first WhatsApp AI receptionist for dental and aesthetics clinics in Dubai. Returns published pricing, overview and demo-booking guidance.",
+    "version": "2.0.0",
+    "description": "Read-only MCP server for Sanad \u2014 the voice-first WhatsApp AI receptionist for dental and aesthetics clinics in Dubai. Returns published pricing, overview and demo-booking guidance.",
     "websiteUrl": "https://sanad.im"
   },
   "protocolVersion": "2025-06-18",
@@ -13,29 +13,45 @@
     "endpoint": "https://sanad.im/mcp"
   },
   "capabilities": {
-    "tools": { "listChanged": false }
+    "tools": {
+      "listChanged": false
+    }
   },
   "tools": [
     {
-      "name": "get_overview",
-      "description": "What Sanad is, who it is for, what it handles, its boundaries, security posture and attribution model."
+      "name": "get_capabilities",
+      "description": "What Sanad does, languages, channels and hard boundaries."
     },
     {
-      "name": "get_pricing",
-      "description": "Founding-cohort pricing in AED for Starter, Growth and Clinic OS, including terms."
+      "name": "get_packages",
+      "description": "Founding-cohort pricing in AED for all three plans."
     },
     {
-      "name": "how_to_book_demo",
-      "description": "How a Dubai clinic requests a 15-minute demo and what it covers."
+      "name": "get_availability",
+      "description": "Remaining founding-cohort slots."
+    },
+    {
+      "name": "get_security_summary",
+      "description": "Data residency, retention, scope and DPA commitments."
+    },
+    {
+      "name": "get_service_boundaries",
+      "description": "What Sanad refuses to do and how clinical questions are routed."
+    },
+    {
+      "name": "request_demo",
+      "description": "Submit a clinic's own business contact details to request a demo. Human-confirmed, validated, idempotent, rate limited. Rejects patient data."
     }
   ],
   "authentication": {
     "required": false,
-    "note": "All tools are public and read-only. No credentials, no OAuth, no rate-limited quota."
+    "note": "All tools are public. request_demo requires confirmed:true and an idempotency key, not a credential."
   },
   "privacy": {
-    "collectsUserData": false,
-    "note": "The server returns static published documents. It stores nothing and receives no patient data."
+    "collectsUserData": true,
+    "note": "Five tools are read-only. request_demo transmits the clinic business contact details supplied by the caller to Netlify Forms. Patient data is rejected by design and never accepted."
   },
-  "contact": { "email": "hello@sanad.im" }
+  "contact": {
+    "email": "hello@sanad.im"
+  }
 }

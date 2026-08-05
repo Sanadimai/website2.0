@@ -174,3 +174,23 @@ export const SOCIAL_PROFILES = [
 
 /** Same profiles, flattened for schema.org sameAs. */
 export const SOCIALS: string[] = SOCIAL_PROFILES.map((p) => p.href);
+
+/**
+ * The illustrative revenue-leakage model shown on the homepage.
+ * Displayed figures are derived from these inputs, never hard-coded, so the
+ * arithmetic on the page can never disagree with the arithmetic in the API.
+ */
+export const REVENUE_MODEL = {
+  averageConsultationAed: 400,
+  convertibleMessagesMissedPerDay: 3,
+  workingDaysPerMonth: 21,
+} as const;
+
+/** AED left unrecovered each month under the model above. */
+export function monthlyLeakageAed(m = REVENUE_MODEL): number {
+  return (
+    m.averageConsultationAed *
+    m.convertibleMessagesMissedPerDay *
+    m.workingDaysPerMonth
+  );
+}

@@ -1,9 +1,12 @@
 "use client";
 
+/* eslint-disable react-hooks/set-state-in-effect -- the count-up is a rAF animation driven after mount; the SSR value is already the final figure. */
+
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { CalendarCheck, Languages, MicVocal, ShieldAlert, Clock } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { T, useLang } from "@/components/lang";
+import { REVENUE_MODEL, monthlyLeakageAed } from "@/lib/content";
 import { Btn, Eyebrow } from "@/components/site-ui";
 import { WhatsAppDemo } from "@/components/whatsapp";
 
@@ -16,11 +19,13 @@ function CountUp({ to }: { to: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const reduced = useReducedMotion();
-  const [value, setValue] = useState(0);
+  // Server-render the final figure so crawlers and no-JS readers see the real
+  // number; the count-up is progressive enhancement layered on top.
+  const [value, setValue] = useState(to);
 
   useEffect(() => {
-    if (!inView) return;
     if (reduced) return setValue(to);
+    if (!inView) return;
     let raf = 0;
     const start = performance.now();
     const tick = (now: number) => {
@@ -108,13 +113,13 @@ export function Bento() {
             </span>
             <dl className="mt-4 text-[0.92rem]">
               {[
-                { en: "Average consultation", ar: "متوسط سعر الكشف", v: "AED 400" },
+                { en: "Average consultation", ar: "متوسط سعر الكشف", v: `AED ${REVENUE_MODEL.averageConsultationAed}` },
                 {
                   en: "Convertible messages missed / day",
                   ar: "رسائل قابلة للتحويل تُفوَّت يوميًا",
-                  v: "3",
+                  v: String(REVENUE_MODEL.convertibleMessagesMissedPerDay),
                 },
-                { en: "Days / month", ar: "أيام الشهر", v: "~21" },
+                { en: "Days / month", ar: "أيام الشهر", v: String(REVENUE_MODEL.workingDaysPerMonth) },
               ].map((r) => (
                 <div
                   key={r.en}
@@ -135,7 +140,7 @@ export function Bento() {
                 />
               </span>
               <b className="font-heading text-[1.9rem] text-gold">
-                ≈ AED <CountUp to={25000} />
+                ≈ AED <CountUp to={monthlyLeakageAed()} />
               </b>
             </div>
             <p className="mt-3 text-[0.76rem] text-[#8fa79c]">

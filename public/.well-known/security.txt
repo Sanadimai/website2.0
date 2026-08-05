@@ -1,0 +1,16 @@
+# Security contact for sanad.im
+# https://www.rfc-editor.org/rfc/rfc9116
+
+Contact: mailto:hello@sanad.im
+Expires: 2027-08-05T00:00:00.000Z
+Preferred-Languages: en, ar
+Canonical: https://sanad.im/.well-known/security.txt
+Policy: https://sanad.im/trust
+Acknowledgments: https://sanad.im/trust
+
+# Please begin the subject line with SECURITY. Reports are read by the
+# co-founder responsible for security.
+#
+# In scope: sanad.im and its public agent endpoints (/mcp, /a2a, /api/v1/*).
+# Out of scope: clinic WhatsApp deployments, which are provisioned per contract
+# and must not be probed. Never send patient data in a report.

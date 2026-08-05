@@ -1,5 +1,7 @@
 'use client';
 
+/* eslint-disable react-hooks/set-state-in-effect -- matchMedia is browser-only and must be sampled after mount; the initial state is the SSR-safe default. */
+
 import React, { useEffect, useRef, useState } from 'react';
 
 export type FlowPalette = {

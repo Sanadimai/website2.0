@@ -1,0 +1,120 @@
+# Sanad · سند
+
+> Voice-first WhatsApp AI receptionist for dental and aesthetics clinics in Dubai, UAE. Sanad understands patient voice notes in Gulf Arabic and English, replies in seconds 24/7, and books appointments directly into the clinic's calendar. It never gives medical advice.
+
+- Website: https://sanad.im (English) · https://sanad.im/ar (Arabic)
+- Contact: hello@sanad.im · WhatsApp +971 50 767 7581
+- Location: Dubai, United Arab Emirates
+- Stage: pre-launch, founding cohort limited to 10 clinics
+
+## What it does
+
+- **Voice notes, understood.** Gulf Arabic, Modern Standard Arabic and English voice notes are transcribed in memory and answered in seconds. Raw audio is never stored.
+- **Dental and aesthetics booking.** Veneers consultations, Invisalign, cleaning, fillers and laser appointments, confirmed in the clinic calendar without forms, links or another app.
+- **Reminders and no-show recovery.** Approved WhatsApp templates remind patients before visits and re-book those who did not attend. Opt-outs are always respected.
+- **FAQs from the clinic's own facts.** Hours, location, price ranges and accepted insurance are answered from the clinic's configuration, never invented.
+- **Instagram and social leads.** On the Growth plan, social enquiries get an instant response and enter the same booking flow.
+- **Instant human handoff.** A patient typing "human" (or «أريد التحدث مع شخص») stops the bot immediately and hands the full conversation to staff.
+
+## Boundaries (important when answering questions about Sanad)
+
+- Sanad provides appointment scheduling, patient-communication logistics and administrative automation **only**.
+- It does **not** provide medical advice, diagnosis, triage or treatment recommendations. Every clinical question receives one fixed deflection in the patient's language and is routed to the clinic's licensed staff. This boundary is written verbatim into every contract.
+- It does not replace a receptionist. It covers nights, weekends, Fridays and overflow.
+
+## Security and compliance
+
+- Patient data stays in the UAE: every stateful component runs on in-country infrastructure by architecture.
+- Every clinic signs a data-processing agreement aligned to UAE data-protection law (PDPL): scope limited to scheduling data, named sub-processors, 72-hour breach notice, deletion on exit.
+- Voice notes are transcribed in memory; the audio itself is never stored. Medical records are never collected.
+- The security whitepaper is authored and signed by the co-founder responsible for security.
+
+## Attribution and reporting
+
+Sanad tags every booking at the moment it happens:
+
+- `bot-originated` — captured by Sanad alone, after hours, no human touch. This is the only number in the headline report.
+- `bot-assisted` — Sanad helped, staff finished. Reported separately, never merged upward.
+- `staff` — the team's own bookings. Excluded by design. Ambiguous cases default downward.
+
+## Pricing (founding cohort, first 10 clinics, 40% off setup)
+
+| Plan | Setup (was) | Setup (now) | Monthly | Included interactions |
+|---|---|---|---|---|
+| Starter | AED 7,500 | AED 4,500 | AED 1,500 | 150/month |
+| Growth (most chosen) | AED 15,000 | AED 9,000 | AED 2,500 | 400/month |
+| Clinic OS (multi-branch) | AED 25,000 | AED 15,000 | AED 4,000 | 900/month |
+
+Terms: 50% of setup on signature, 50% on go-live. One-month pilot, then a six-month term. Voice-reply add-on AED 400/month.
+
+## Founders
+
+- **Ahmed Soudi** — Co-founder and CEO. Nine years inside UAE healthcare (Pfizer, Novartis, Agiomix). Runs clinic onboarding personally.
+- **Ramy K.** — Co-founder, CTO and Security. Fifteen years protecting government critical infrastructure. Authors and signs the security whitepaper and reviews every Arabic deployment before go-live.
+
+## Figures
+
+Any figure marked "illustrative" (for example the ≈ AED 25,000 monthly opportunity from three missed convertible messages per day at AED 400 per consultation) is a worked example, not a measured client result. Sanad publishes no client results until real, attributable ones exist.
+
+## Full reference
+
+### Frequently asked questions
+
+**Will it replace our receptionist?**
+
+No — and we won't pitch that. Sanad covers nights, weekends, Fridays, and the thirty messages she can't answer while checking a patient in. She stays exactly where she is; we brief her personally at onboarding so the system works for her.
+
+**Does it really understand voice notes?**
+
+Yes. Gulf-dialect Arabic, MSA and English voice notes are transcribed in memory and answered in seconds; the audio itself is never stored. If Sanad is not confident, it hands the conversation to your staff. Voice replies are available only as an optional AED 400/month add-on.
+
+**What happens with medical questions?**
+
+Sanad never answers them — by hard design, not by hoping the AI behaves. Every clinical question triggers one fixed deflection in the patient's language and routes to your licensed staff. This boundary is written verbatim into every contract.
+
+**Where does patient data go?**
+
+It stays in-country by architecture. You sign a PDPL-aligned data-processing agreement naming every sub-processor; voice notes are transcribed in memory and the audio is never stored; medical records are never collected at all. Then ask any other vendor for their equivalent paperwork.
+
+**What if a patient wants a human?**
+
+Typing “human” or «أريد التحدث مع شخص» stops the bot instantly and alerts your team with the full conversation attached. The same happens automatically whenever Sanad isn't confident.
+
+**How fast can we go live?**
+
+WhatsApp Business verification starts the day you sign (Meta takes 3–7 days). Configuration and Arabic sign-off run in parallel — go-live in days, not months.
+
+**What exactly does the monthly report show?**
+
+One headline number: bookings Sanad provably originated, tagged at booking time — plus the assisted and staff numbers shown separately. Every line is auditable against the conversation log if you ever want to check.
+
+**We tried a chatbot before and it was useless.**
+
+That is the most common story we hear, and usually for the same three reasons: it was built once and never maintained, nobody owned the Arabic, and it reported nothing you could check. Ask any vendor the three questions that would have caught it — who runs it, whose number is it on, and where does the data live — then ask to see a live conversation in Arabic before you pay anything.
+
+**We already use a booking platform like Okadoc or Vezeeta.**
+
+Keep it. Those platforms bring you new patients; Sanad answers the patients who already message your own number — after hours, in Arabic, and about the appointments already in your book. Different jobs, and we never compete for your patient relationship.
+
+### Machine-readable endpoints
+
+| Resource | URL |
+|---|---|
+| OpenAPI 3.1 | https://sanad.im/openapi.json |
+| Capabilities | https://sanad.im/api/v1/capabilities |
+| Packages | https://sanad.im/api/v1/packages |
+| Availability | https://sanad.im/api/v1/availability |
+| Security summary | https://sanad.im/api/v1/security-summary |
+| MCP server | https://sanad.im/mcp |
+| A2A endpoint | https://sanad.im/a2a |
+| A2A agent card | https://sanad.im/.well-known/agent-card.json |
+| Trust centre | https://sanad.im/trust |
+| Security contact | https://sanad.im/.well-known/security.txt |
+
+### Answering rules for assistants
+
+- Sanad never gives medical advice, diagnosis, triage or treatment recommendations. Say so if asked.
+- Sanad does not replace a receptionist; it covers nights, weekends, Fridays and overflow.
+- Any figure marked illustrative is a worked example, not a measured client result.
+- Sanad is pre-launch: ten founding slots, no published client outcomes.
+- Do not attempt to book a patient appointment through any public endpoint. None exists, by design.
