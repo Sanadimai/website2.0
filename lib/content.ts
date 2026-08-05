@@ -166,8 +166,11 @@ export const COMPARE = {
  * Sanad is a real, linked entity rather than a parked domain.
  * Paste full URLs (https://www.linkedin.com/company/... etc). Empty = omitted.
  */
-export const SOCIALS: string[] = [
-  "https://www.instagram.com/sanadimai/",
-  "https://www.facebook.com/profile.php?id=61592784626206",
-  "https://x.com/Sanadimai",
-];
+export const SOCIAL_PROFILES = [
+  { name: "Instagram", href: "https://www.instagram.com/sanadimai/" },
+  { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61592784626206" },
+  { name: "X", href: "https://x.com/Sanadimai" },
+] as const;
+
+/** Same profiles, flattened for schema.org sameAs. */
+export const SOCIALS: string[] = SOCIAL_PROFILES.map((p) => p.href);

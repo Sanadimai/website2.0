@@ -5,6 +5,7 @@ import { FileText, MessageSquareText, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { T, useLang } from "@/components/lang";
 import { Brand, Btn, Eyebrow, Reveal, SectionTitle } from "@/components/site-ui";
+import { SocialLinks } from "@/components/social-links";
 import { FAQS, FOUNDING_SLOTS_OPEN, FOUNDING_SLOTS_TOTAL, PLANS } from "@/lib/content";
 
 /* ------------------------------------------------------------------ FEATURES */
@@ -601,8 +602,11 @@ export function Footer() {
     <footer className="border-t border-border py-12">
       <div className="mx-auto max-w-[1160px] px-7">
         <div className="flex flex-wrap items-start justify-between gap-7">
-          <Brand />
-          <nav className="flex flex-wrap gap-6 text-[0.9rem] text-sage">
+          <div className="flex flex-col gap-3">
+            <Brand />
+            <SocialLinks className="-ms-3" />
+          </div>
+          <nav className="flex flex-wrap items-center gap-6 text-[0.9rem] text-sage">
             <Link href="#pricing">
               <T en="Pricing" ar="الأسعار" />
             </Link>
