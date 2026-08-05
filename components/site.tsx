@@ -6,6 +6,7 @@ import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { JsonLd } from "@/components/json-ld";
 import { LangProvider, type Lang } from "@/components/lang";
+import { WebMcp } from "@/components/webmcp";
 import {
   Faq,
   Features,
@@ -23,6 +24,7 @@ export function Site({ lang }: { lang: Lang }) {
   return (
     <LangProvider lang={lang}>
       <JsonLd lang={lang} />
+      <WebMcp lang={lang} />
       <Header />
       <main className="flex-1">
         <Hero />
