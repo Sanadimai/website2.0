@@ -6,8 +6,13 @@ import type { Config } from "https://edge.netlify.com";
  * Five read-only tools return documents this site already publishes, fetched at
  * call time so the server cannot drift from the website. The sixth,
  * request_demo, is the only write path: it is validated, size-limited, rate
- * limited, idempotent, and delivered to Netlify Forms. It reports success only
- * when delivery actually succeeded.
+ * limited and delivered to Netlify Forms. It reports success only when delivery
+ * actually succeeded.
+ *
+ * KNOWN LIMITATION: rate limiting and idempotency both depend on Netlify Blobs,
+ * which is not currently reachable from this edge function. Both fail open, so
+ * a retry with the same idempotency key WILL create a second submission until
+ * the blob store is provisioned. Verified in production, not assumed.
  *
  * It deliberately cannot accept patient data. There is no public appointment
  * booking here, and there never will be: that requires clinic authentication,
@@ -285,9 +290,9 @@ export default async function handler(request: Request) {
                 name: "request_demo",
                 title: "Request a demo",
                 description:
-                  "Submit a Dubai-area clinic's own business contact details to request a 15-minute demo. Requires explicit human confirmation. Rejects patient names, symptoms, medical records and appointment details. This is not appointment booking.",
+                  "Submit a Dubai-area clinic's own business contact details to request a 15-minute demo. Requires explicit human confirmation. Rejects patient names, symptoms, medical records and appointment details. This is not appointment booking. Send a stable idempotency_key: de-duplication is best-effort and depends on the blob store being reachable, so avoid retrying a call that already reported success.",
                 inputSchema: DEMO_SCHEMA,
-                annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: true },
+                annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: true },
               },
             ],
           },
