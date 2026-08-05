@@ -1,0 +1,60 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://sanad.im/mcp",
+      "service-desc": [
+        {
+          "href": "https://sanad.im/.well-known/mcp/server-card.json",
+          "type": "application/json",
+          "title": "MCP server card (SEP-1649)"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://sanad.im/llms.txt",
+          "type": "text/markdown",
+          "title": "Sanad overview for agents"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://sanad.im/.well-known/mcp/server-card.json",
+          "type": "application/json",
+          "title": "Server card doubles as the liveness document"
+        }
+      ]
+    },
+    {
+      "anchor": "https://sanad.im/",
+      "service-desc": [
+        {
+          "href": "https://sanad.im/.well-known/agents/index.json",
+          "type": "application/json",
+          "title": "Agent discovery index (DNS-AID target)"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://sanad.im/index.md",
+          "type": "text/markdown",
+          "title": "Markdown edition of the English site"
+        },
+        {
+          "href": "https://sanad.im/ar/index.md",
+          "type": "text/markdown",
+          "title": "Markdown edition of the Arabic site"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://sanad.im/.well-known/agent-skills/index.json",
+          "type": "application/json",
+          "title": "Agent skills index"
+        }
+      ],
+      "author": [{ "href": "mailto:hello@sanad.im" }],
+      "privacy-policy": [{ "href": "https://sanad.im/privacy" }],
+      "terms-of-service": [{ "href": "https://sanad.im/terms" }]
+    }
+  ]
+}

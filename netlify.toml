@@ -28,6 +28,11 @@
   function = "markdown"
   path = "/ar"
 
+# MCP server over Streamable HTTP.
+[[edge_functions]]
+  function = "mcp"
+  path = "/mcp"
+
 # RFC 8288 Link headers: agent-discoverable resources, advertised before an
 # agent has to parse any HTML.
 
@@ -56,3 +61,15 @@
   for = "/ar"
   [headers.values]
     Link = '</ar/index.md>; rel="alternate"; type="text/markdown", </llms.txt>; rel="describedby"; type="text/markdown", </.well-known/agents/index.json>; rel="service-desc"; type="application/json", </.well-known/agent-skills/index.json>; rel="service-meta"; type="application/json", </>; rel="alternate"; hreflang="en-AE", </sitemap.xml>; rel="sitemap"; type="application/xml", </ar/privacy>; rel="privacy-policy", </ar/terms>; rel="terms-of-service", <https://sanad.im/ar>; rel="canonical"'
+
+[[headers]]
+  for = "/.well-known/api-catalog"
+  [headers.values]
+    content-type = "application/linkset+json"
+    access-control-allow-origin = "*"
+
+[[headers]]
+  for = "/auth.md"
+  [headers.values]
+    content-type = "text/markdown; charset=utf-8"
+    access-control-allow-origin = "*"

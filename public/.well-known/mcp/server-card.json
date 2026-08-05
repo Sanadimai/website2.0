@@ -1,0 +1,41 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/draft/server-card.json",
+  "serverInfo": {
+    "name": "sanad",
+    "title": "Sanad",
+    "version": "1.0.0",
+    "description": "Read-only MCP server for Sanad — the voice-first WhatsApp AI receptionist for dental and aesthetics clinics in Dubai. Returns published pricing, overview and demo-booking guidance.",
+    "websiteUrl": "https://sanad.im"
+  },
+  "protocolVersion": "2025-06-18",
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://sanad.im/mcp"
+  },
+  "capabilities": {
+    "tools": { "listChanged": false }
+  },
+  "tools": [
+    {
+      "name": "get_overview",
+      "description": "What Sanad is, who it is for, what it handles, its boundaries, security posture and attribution model."
+    },
+    {
+      "name": "get_pricing",
+      "description": "Founding-cohort pricing in AED for Starter, Growth and Clinic OS, including terms."
+    },
+    {
+      "name": "how_to_book_demo",
+      "description": "How a Dubai clinic requests a 15-minute demo and what it covers."
+    }
+  ],
+  "authentication": {
+    "required": false,
+    "note": "All tools are public and read-only. No credentials, no OAuth, no rate-limited quota."
+  },
+  "privacy": {
+    "collectsUserData": false,
+    "note": "The server returns static published documents. It stores nothing and receives no patient data."
+  },
+  "contact": { "email": "hello@sanad.im" }
+}
