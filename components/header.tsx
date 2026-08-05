@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { T, useLang, useT } from "@/components/lang";
+import { T, useOtherLang, useT } from "@/components/lang";
 
 const LINKS = [
   { href: "#how", en: "How it works", ar: "كيف يعمل" },
@@ -12,7 +12,7 @@ const LINKS = [
 ];
 
 export function Header() {
-  const { lang, toggle } = useLang();
+  const { other, href } = useOtherLang();
   const t = useT();
 
   return (
@@ -39,17 +39,18 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2.5">
-          <button
-            type="button"
-            onClick={toggle}
+          {/* A real link, not a state toggle — crawlers follow it to the other language. */}
+          <Link
+            href={href}
+            hrefLang={other}
             aria-label={t("Switch to Arabic", "التبديل إلى الإنجليزية")}
-            className="min-h-11 rounded-full border border-white/25 px-3.5 text-[0.85rem] font-semibold text-paper transition-colors hover:border-gold hover:text-gold"
+            className="flex min-h-11 items-center rounded-full border border-white/25 px-3.5 text-[0.85rem] font-semibold text-paper transition-colors hover:border-gold hover:text-gold"
           >
-            {lang === "en" ? "عربي" : "English"}
-          </button>
+            {other === "ar" ? "عربي" : "English"}
+          </Link>
           <Link
             href="#cta"
-            className="min-h-11 rounded-xl bg-gold px-4 py-2 text-[0.88rem] font-semibold text-[#231a05] transition-transform hover:-translate-y-px"
+            className="flex min-h-11 items-center rounded-xl bg-gold px-4 py-2 text-[0.88rem] font-semibold text-[#231a05] transition-transform hover:-translate-y-px"
           >
             <T en="Book a demo" ar="احجز عرضًا" />
           </Link>

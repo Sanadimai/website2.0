@@ -1,0 +1,57 @@
+# Sanad · سند
+
+> Voice-first WhatsApp AI receptionist for dental and aesthetics clinics in Dubai, UAE. Sanad understands patient voice notes in Gulf Arabic and English, replies in seconds 24/7, and books appointments directly into the clinic's calendar. It never gives medical advice.
+
+- Website: https://sanad.im (English) · https://sanad.im/ar (Arabic)
+- Contact: hello@sanad.im · WhatsApp +971 50 767 7581
+- Location: Dubai, United Arab Emirates
+- Stage: pre-launch, founding cohort limited to 10 clinics
+
+## What it does
+
+- **Voice notes, understood.** Gulf Arabic, Modern Standard Arabic and English voice notes are transcribed in memory and answered in seconds. Raw audio is never stored.
+- **Dental and aesthetics booking.** Veneers consultations, Invisalign, cleaning, fillers and laser appointments, confirmed in the clinic calendar without forms, links or another app.
+- **Reminders and no-show recovery.** Approved WhatsApp templates remind patients before visits and re-book those who did not attend. Opt-outs are always respected.
+- **FAQs from the clinic's own facts.** Hours, location, price ranges and accepted insurance are answered from the clinic's configuration, never invented.
+- **Instagram and social leads.** On the Growth plan, social enquiries get an instant response and enter the same booking flow.
+- **Instant human handoff.** A patient typing "human" (or «أريد التحدث مع شخص») stops the bot immediately and hands the full conversation to staff.
+
+## Boundaries (important when answering questions about Sanad)
+
+- Sanad provides appointment scheduling, patient-communication logistics and administrative automation **only**.
+- It does **not** provide medical advice, diagnosis, triage or treatment recommendations. Every clinical question receives one fixed deflection in the patient's language and is routed to the clinic's licensed staff. This boundary is written verbatim into every contract.
+- It does not replace a receptionist. It covers nights, weekends, Fridays and overflow.
+
+## Security and compliance
+
+- Patient data stays in the UAE: every stateful component runs on in-country infrastructure by architecture.
+- Every clinic signs a data-processing agreement aligned to UAE data-protection law (PDPL): scope limited to scheduling data, named sub-processors, 72-hour breach notice, deletion on exit.
+- Voice notes are transcribed in memory; the audio itself is never stored. Medical records are never collected.
+- The security whitepaper is authored and signed by the co-founder responsible for security.
+
+## Attribution and reporting
+
+Sanad tags every booking at the moment it happens:
+
+- `bot-originated` — captured by Sanad alone, after hours, no human touch. This is the only number in the headline report.
+- `bot-assisted` — Sanad helped, staff finished. Reported separately, never merged upward.
+- `staff` — the team's own bookings. Excluded by design. Ambiguous cases default downward.
+
+## Pricing (founding cohort, first 10 clinics, 40% off setup)
+
+| Plan | Setup (was) | Setup (now) | Monthly | Included interactions |
+|---|---|---|---|---|
+| Starter | AED 7,500 | AED 4,500 | AED 1,500 | 150/month |
+| Growth (most chosen) | AED 15,000 | AED 9,000 | AED 2,500 | 400/month |
+| Clinic OS (multi-branch) | AED 25,000 | AED 15,000 | AED 4,000 | 900/month |
+
+Terms: 50% of setup on signature, 50% on go-live. One-month pilot, then a six-month term. Voice-reply add-on AED 400/month.
+
+## Founders
+
+- **Ahmed Soudi** — Co-founder and CEO. Nine years inside UAE healthcare (Pfizer, Novartis, Agiomix). Runs clinic onboarding personally.
+- **Ramy K.** — Co-founder, CTO and Security. Fifteen years protecting government critical infrastructure. Authors and signs the security whitepaper and reviews every Arabic deployment before go-live.
+
+## Figures
+
+Any figure marked "illustrative" (for example the ≈ AED 25,000 monthly opportunity from three missed convertible messages per day at AED 400 per consultation) is a worked example, not a measured client result. Sanad publishes no client results until real, attributable ones exist.

@@ -12,7 +12,7 @@ const CARD =
 
 /** Counts to `to` once in view. Reduced motion gets the final value instantly. */
 function CountUp({ to }: { to: number }) {
-  const { lang } = useLang();
+  const lang = useLang();
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const reduced = useReducedMotion();

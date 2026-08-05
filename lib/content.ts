@@ -1,0 +1,91 @@
+// Shared content used by both the rendered page (a client component) and the
+// JSON-LD block (a server component). It must live outside "use client" — Next
+// hands server code a client *reference* for anything exported from a client
+// module, so PLANS.map() would explode at build time.
+
+export const PLANS = [
+  {
+    plan: "Starter",
+    featured: false,
+    for: { en: "The bilingual WhatsApp receptionist, complete.", ar: "موظف الاستقبال الذكي ثنائي اللغة، كاملًا." },
+    was: "AED 7,500",
+    now: "AED 4,500",
+    lbl: { en: "one-time setup", ar: "رسوم تأسيس لمرة واحدة" },
+    monthly: "AED 1,500",
+    items: [
+      { en: "WhatsApp AI receptionist (AR + EN), 24/7", ar: "استقبال واتساب ذكي (عربي + إنجليزي) ٢٤/٧" },
+      { en: "Conversational booking into your calendar", ar: "حجز محادثاتي مباشر في تقويمك" },
+      { en: "Reminders + no-show recovery", ar: "تذكيرات + متابعة المتخلفين عن الحضور" },
+      { en: "FAQ answers from your clinic config", ar: "إجابات الأسئلة الشائعة من معلومات عيادتك" },
+      { en: "150 interactions/month included", ar: "١٥٠ تفاعلًا شهريًا ضمن الباقة" },
+    ],
+    cta: { en: "Start with Starter", ar: "ابدأ بستارتر" },
+  },
+  {
+    plan: "Growth",
+    featured: true,
+    badge: { en: "Founding-offer default · most chosen", ar: "الخيار الافتراضي لدفعة التأسيس" },
+    for: { en: "Reception + lead capture + reputation, in one system.", ar: "استقبال + التقاط عملاء + سمعة — في نظام واحد." },
+    was: "AED 15,000",
+    now: "AED 9,000",
+    lbl: { en: "one-time setup · 40% off", ar: "رسوم تأسيس · خصم ٤٠٪" },
+    monthly: "AED 2,500",
+    items: [
+      { en: "Everything in Starter", ar: "كل ما في ستارتر" },
+      { en: "Instagram & Google lead capture, instant reply", ar: "التقاط عملاء إنستغرام وجوجل بردّ فوري" },
+      { en: "Missed-call auto-text", ar: "رسالة تلقائية لكل مكالمة فائتة" },
+      { en: "Google review-generation engine", ar: "محرّك توليد تقييمات جوجل" },
+      { en: "Attribution-tagged monthly report — provable bookings only", ar: "تقرير شهري موسوم — حجوزات مثبتة فقط" },
+      { en: "400 interactions/month included", ar: "٤٠٠ تفاعل شهريًا ضمن الباقة" },
+    ],
+    cta: { en: "Reserve a founding slot", ar: "احجز مقعد التأسيس" },
+  },
+  {
+    plan: "Clinic OS",
+    featured: false,
+    for: { en: "For multi-branch clinics and groups.", ar: "للعيادات متعددة الفروع والمجموعات." },
+    was: "AED 25,000",
+    now: "AED 15,000",
+    lbl: { en: "one-time setup", ar: "رسوم تأسيس لمرة واحدة" },
+    monthly: "AED 4,000",
+    items: [
+      { en: "Everything in Growth", ar: "كل ما في النمو" },
+      { en: "Multi-branch message routing", ar: "توجيه الرسائل بين الفروع" },
+      { en: "Insurance pre-check flow", ar: "مسار تحقق مبدئي من التأمين" },
+      { en: "Recall campaigns (6-month recalls, refills)", ar: "حملات استدعاء (مراجعات نصف سنوية، تجديد وصفات)" },
+      { en: "Quarterly optimization call · 900 interactions/mo", ar: "مكالمة تحسين ربع سنوية · ٩٠٠ تفاعل شهريًا" },
+    ],
+    cta: { en: "Talk multi-branch", ar: "لنتحدث عن الفروع" },
+  },
+];
+
+export const FAQS = [
+  {
+    en: ["Will it replace our receptionist?", "No — and we won't pitch that. Sanad covers nights, weekends, Fridays, and the thirty messages she can't answer while checking a patient in. She stays exactly where she is; we brief her personally at onboarding so the system works for her."],
+    ar: ["هل سيحل محل موظفة الاستقبال؟", "لا — ولن نروّج لذلك أصلًا. سند يغطي الليالي وعطلات الأسبوع وأيام الجمعة، وثلاثين رسالة لا تستطيع الرد عليها وهي مع مريض أمامها. تبقى في مكانها تمامًا، ونطلعها بأنفسنا على النظام عند الإعداد ليعمل لصالحها."],
+  },
+  {
+    en: ["Does it really understand voice notes?", "Yes. Gulf-dialect Arabic, MSA and English voice notes are transcribed in memory and answered in seconds; the audio itself is never stored. If Sanad is not confident, it hands the conversation to your staff. Voice replies are available only as an optional AED 400/month add-on."],
+    ar: ["هل يفهم الرسائل الصوتية فعلًا؟", "نعم. تُفرّغ الرسائل الصوتية بالعربية الخليجية والفصحى والإنجليزية في الذاكرة ويُرد عليها خلال ثوانٍ، ولا يُخزَّن الصوت نفسه. وإذا لم يكن سند واثقًا، يحوّل المحادثة إلى فريقك. الرد الصوتي متاح فقط كإضافة اختيارية بقيمة ٤٠٠ درهم شهريًا."],
+  },
+  {
+    en: ["What happens with medical questions?", "Sanad never answers them — by hard design, not by hoping the AI behaves. Every clinical question triggers one fixed deflection in the patient's language and routes to your licensed staff. This boundary is written verbatim into every contract."],
+    ar: ["ماذا عن الأسئلة الطبية؟", "لا يجيب عنها سند أبدًا — بتصميم صارم، لا بالاتكال على حسن سلوك الذكاء الاصطناعي. كل سؤال طبي يقابله ردّ ثابت واحد بلغة المريض ويُحوَّل لطاقمك المرخّص. هذا الحد مكتوب نصًا في كل عقد."],
+  },
+  {
+    en: ["Where does patient data go?", "It stays in-country by architecture. You sign a PDPL-aligned data-processing agreement naming every sub-processor; voice notes are transcribed in memory and the audio is never stored; medical records are never collected at all. Then ask any other vendor for their equivalent paperwork."],
+    ar: ["أين تذهب بيانات المرضى؟", "تبقى داخل الدولة بحكم البنية الهندسية. توقّع اتفاقية معالجة بيانات متوافقة مع PDPL تسمّي كل معالج فرعي؛ الرسائل الصوتية تُفرَّغ في الذاكرة ولا يُخزَّن الصوت أبدًا؛ والسجلات الطبية لا تُجمَع إطلاقًا. ثم اطلب من أي مزوّد آخر وثائق مماثلة."],
+  },
+  {
+    en: ["What if a patient wants a human?", "Typing “human” or «أريد التحدث مع شخص» stops the bot instantly and alerts your team with the full conversation attached. The same happens automatically whenever Sanad isn't confident."],
+    ar: ["ماذا لو أراد المريض التحدث مع إنسان؟", "كتابة «أريد التحدث مع شخص» توقف البوت فورًا وتنبّه فريقك مع المحادثة كاملة. ويحدث الأمر نفسه تلقائيًا كلما لم يكن سند واثقًا من الإجابة."],
+  },
+  {
+    en: ["How fast can we go live?", "WhatsApp Business verification starts the day you sign (Meta takes 3–7 days). Configuration and Arabic sign-off run in parallel — go-live in days, not months."],
+    ar: ["متى ننطلق؟", "توثيق واتساب للأعمال يبدأ يوم توقيعك (يستغرق لدى ميتا ٣–٧ أيام)، ويجري الإعداد واعتماد العربية بالتوازي — فالانطلاق خلال أيام لا أشهر."],
+  },
+  {
+    en: ["What exactly does the monthly report show?", "One headline number: bookings Sanad provably originated, tagged at booking time — plus the assisted and staff numbers shown separately. Every line is auditable against the conversation log if you ever want to check."],
+    ar: ["ماذا يعرض التقرير الشهري تحديدًا؟", "رقم رئيسي واحد: الحجوزات التي أنشأها سند بشكل مثبت، موسومة لحظة حدوثها — مع عرض حجوزات المساعدة والموظفين منفصلة. وكل سطر قابل للتدقيق مقابل سجل المحادثات متى شئت."],
+  },
+];
