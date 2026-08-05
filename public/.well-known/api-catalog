@@ -1,6 +1,37 @@
 {
   "linkset": [
     {
+      "anchor": "https://sanad.im/api/v1",
+      "service-desc": [
+        {
+          "href": "https://sanad.im/openapi.json",
+          "type": "application/openapi+json",
+          "title": "OpenAPI 3.1 description of the public read-only API"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://sanad.im/llms.txt",
+          "type": "text/markdown",
+          "title": "Sanad overview for agents"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://sanad.im/api/v1/availability",
+          "type": "application/json",
+          "title": "Founding-slot availability"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://sanad.im/api/v1/capabilities",
+          "type": "application/json",
+          "title": "Capabilities and boundaries"
+        }
+      ]
+    },
+    {
       "anchor": "https://sanad.im/mcp",
       "service-desc": [
         {

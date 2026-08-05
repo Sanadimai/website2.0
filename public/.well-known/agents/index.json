@@ -1,15 +1,23 @@
 {
   "$schema": "https://agentskills.io/schemas/agent-index-v0.2.0.json",
   "name": "Sanad",
-  "alternateName": "سند",
+  "alternateName": "\u0633\u0646\u062f",
   "description": "Voice-first WhatsApp AI receptionist for dental and aesthetics clinics in Dubai, UAE. Understands Gulf Arabic and English voice notes, replies in seconds and books appointments. Never gives medical advice.",
   "url": "https://sanad.im",
-  "languages": ["en", "ar"],
+  "languages": [
+    "en",
+    "ar"
+  ],
   "resources": {
     "summary": "https://sanad.im/llms.txt",
     "markdown": "https://sanad.im/index.md",
     "skills": "https://sanad.im/.well-known/agent-skills/index.json",
-    "sitemap": "https://sanad.im/sitemap.xml"
+    "sitemap": "https://sanad.im/sitemap.xml",
+    "openapi": "https://sanad.im/openapi.json",
+    "capabilities": "https://sanad.im/api/v1/capabilities",
+    "mcp": "https://sanad.im/mcp",
+    "a2a": "https://sanad.im/a2a",
+    "trust": "https://sanad.im/trust"
   },
   "contact": {
     "email": "hello@sanad.im",
@@ -19,12 +27,23 @@
     "privacy": "https://sanad.im/privacy",
     "terms": "https://sanad.im/terms",
     "dataProcessing": "https://sanad.im/dpa",
-    "contentSignals": { "ai-train": "yes", "search": "yes", "ai-input": "yes" }
+    "contentSignals": {
+      "ai-train": "yes",
+      "search": "yes",
+      "ai-input": "yes"
+    }
   },
   "boundaries": [
     "Sanad provides appointment scheduling and patient-communication logistics only.",
     "It never provides medical advice, diagnosis, triage or treatment recommendations.",
     "Figures marked illustrative are worked examples, not measured client results."
   ],
-  "apis": []
+  "apis": [
+    {
+      "name": "public read-only API",
+      "base": "https://sanad.im/api/v1",
+      "description": "OpenAPI 3.1 at /openapi.json. Unauthenticated, read-only.",
+      "auth": "none"
+    }
+  ]
 }
