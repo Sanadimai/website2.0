@@ -12,6 +12,7 @@ const PAGES = [
   { path: "/privacy", priority: 0.4 as const },
   { path: "/terms", priority: 0.4 as const },
   { path: "/dpa", priority: 0.6 as const },
+  { path: "/trust", priority: 0.7 as const },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

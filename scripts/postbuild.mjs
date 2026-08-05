@@ -13,7 +13,13 @@ const OUT = new URL("../out/", import.meta.url);
 /* ---------------------------------------------- 1. Arabic lang/dir */
 
 // Every Arabic route emitted by the export. Add here when a new /ar page ships.
-const ARABIC_PAGES = ["ar.html", "ar/privacy.html", "ar/terms.html", "ar/dpa.html"];
+const ARABIC_PAGES = [
+  "ar.html",
+  "ar/privacy.html",
+  "ar/terms.html",
+  "ar/dpa.html",
+  "ar/trust.html",
+];
 
 let patchedCount = 0;
 

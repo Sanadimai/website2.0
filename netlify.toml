@@ -38,6 +38,11 @@
   function = "a2a"
   path = "/a2a"
 
+# Live founding-slot availability (Netlify Blobs backed).
+[[edge_functions]]
+  function = "availability"
+  path = "/api/v1/availability"
+
 # RFC 8288 Link headers: agent-discoverable resources, advertised before an
 # agent has to parse any HTML.
 
@@ -78,3 +83,9 @@
   [headers.values]
     content-type = "text/markdown; charset=utf-8"
     access-control-allow-origin = "*"
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    access-control-allow-origin = "*"
+    cache-control = "public, max-age=300"

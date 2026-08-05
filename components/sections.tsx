@@ -622,6 +622,9 @@ export function Footer() {
             <Link href={p("/dpa")}>
               <T en="Data processing" ar="معالجة البيانات" />
             </Link>
+            <Link href={p("/trust")}>
+              <T en="Trust centre" ar="مركز الثقة" />
+            </Link>
             <a href="mailto:hello@sanad.im">hello@sanad.im</a>
             <span>
               <T en="Dubai, UAE" ar="دبي، الإمارات" />
