@@ -20,7 +20,7 @@ const KEY = "sanad-consent";
 const GA_ID = "G-GTX7XB2CKG";
 const CLARITY_ID = "xxjy84ucnt";
 const GTM_ID = "GTM-KN3FBX9H";
-const META_PIXEL_ID = "1975400309745109";
+const META_PIXEL_ID = "1267881443075436";
 
 type Choice = "granted" | "denied";
 
