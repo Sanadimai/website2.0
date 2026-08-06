@@ -7,10 +7,10 @@ import type { Lang } from "@/components/lang";
  * PLACEHOLDERS: three fields are filled once the trade licence is issued.
  * Search the repo for "[[" to find them all.
  */
-export const LEGAL_ENTITY = "[[ LEGAL ENTITY NAME ]]";
-export const LICENCE_NO = "[[ TRADE LICENCE NO. ]]";
-export const JURISDICTION = "[[ FREE ZONE / EMIRATE ]]";
-export const REG_ADDRESS = "[[ REGISTERED ADDRESS ]]";
+export const LEGAL_ENTITY = "RYR (FZE)";
+export const LICENCE_NO = "SC241014101";
+export const JURISDICTION = "Sharjah Research Technology and Innovation Park (SRTIP) Free Zone, Sharjah, UAE";
+export const REG_ADDRESS = "Block C VL01-194, SRTIP, Sharjah, United Arab Emirates";
 
 export const LAST_UPDATED = { en: "5 August 2026", ar: "٥ أغسطس ٢٠٢٦" };
 
@@ -415,8 +415,8 @@ export function LegalPage({ slug, lang }: { slug: LegalSlug; lang: Lang }) {
 
       <p className="mt-6 rounded-[14px] border border-gold/50 bg-gold-soft/50 p-4 text-[0.86rem] leading-[1.7] text-ink">
         {ar
-          ? "ملاحظة ما قبل الإطلاق: الحقول الموضوعة بين قوسين مزدوجين تُستكمل فور صدور الرخصة التجارية. وقد راجع الشريك المؤسس المسؤول عن الأمن مضمون هذه الصفحة، ولا يغني ذلك عن مراجعة قانونية مستقلة قبل التوقيع."
-          : "Pre-launch note: fields shown in double brackets are completed once the trade licence is issued. The content of this page has been reviewed by the co-founder responsible for security; it does not replace independent legal review before signature."}
+          ? "ملاحظة ما قبل الإطلاق: سند منتج لم يُطلق تجاريًا بعد. الجهة المتعاقدة هي RYR (FZE)، رخصة رقم SC241014101، منطقة مجمع الشارقة للبحوث والتكنولوجيا والابتكار الحرة. وقد راجع الشريك المؤسس المسؤول عن الأمن مضمون هذه الصفحة، ولا يغني ذلك عن مراجعة قانونية مستقلة قبل التوقيع."
+          : "Pre-launch note: Sanad has not yet launched commercially. The contracting entity is RYR (FZE), trade licence SC241014101, registered in the SRTIP Free Zone, Sharjah. The content of this page has been reviewed by the co-founder responsible for security; it does not replace independent legal review before signature."}
       </p>
 
       <p className="mt-6 text-[0.98rem] leading-[1.85] text-sage">{doc.intro}</p>

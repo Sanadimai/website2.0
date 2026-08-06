@@ -26,7 +26,15 @@ export function JsonLd({ lang }: { lang: Lang }) {
     // Omitted entirely when empty — an empty sameAs array is a negative signal.
     ...(SOCIALS.length ? { sameAs: SOCIALS } : {}),
     areaServed: { "@type": "City", name: "Dubai", containedInPlace: { "@type": "Country", name: "United Arab Emirates" } },
-    address: { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" },
+    // Registered office is Sharjah (SRTIP free zone); the market served is Dubai.
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Block C VL01-194, SRTIP",
+      addressLocality: "Sharjah",
+      addressCountry: "AE",
+    },
+    legalName: "RYR (FZE)",
+    identifier: { "@type": "PropertyValue", name: "Trade licence", value: "SC241014101" },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
