@@ -88,6 +88,26 @@ public site, the MCP server and the A2A endpoint are all open and read-only.
 If and when a clinic-facing API is placed behind Access, this file will name
 the protected paths and the scopes required.
 
+## Why no Web Bot Auth directory is published
+
+There is deliberately no `/.well-known/http-message-signatures-directory` on
+this domain.
+
+Web Bot Auth exists so that a service which *sends* bot or agent requests can
+sign them, letting receiving sites verify the traffic came from it. Sanad sends
+no such traffic. The only outbound requests made by this domain are the MCP and
+A2A endpoints fetching documents from sanad.im itself; nothing here crawls or
+calls a third-party site.
+
+Publishing a key set would therefore declare a signing identity for traffic
+that does not exist, and would reintroduce private-key custody that Sanad
+deliberately does not have. Cloudflare Access is the only issuer associated
+with this domain, and Sanad holds no signing key of its own.
+
+If Sanad ever fetches third-party URLs on a clinic's behalf, this directory
+will be published together with real signed requests carrying `Signature-Agent`
+and `Signature-Input` headers — not before.
+
 ## Rules for agents
 
 - Do not present Sanad as giving medical advice. It never does; every clinical
