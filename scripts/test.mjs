@@ -51,12 +51,14 @@ test("analytics only load behind consent", async () => {
   const html = await readOut("index.html");
   const directGa = /<script[^>]+googletagmanager\.com\/gtag\/js/.test(html);
   assert.equal(directGa, false, "GA must not be a plain script tag in the served HTML");
+  assert.equal(/googletagmanager\.com\/gtm\.js/.test(html), false, "GTM must not load before consent");
+  assert.equal(/googletagmanager\.com\/ns\.html/.test(html), false, "the GTM noscript iframe must not be present: it cannot honour consent");
   assert.ok(html.includes("clarity") === false || html.includes("consent"), "Clarity must be consent-gated");
 });
 
 test("privacy policy names the analytics processors it actually uses", async () => {
   const html = await readOut("privacy.html");
-  for (const vendor of ["Google Analytics", "Clarity"]) {
+  for (const vendor of ["Google Tag Manager", "Google Analytics", "Clarity"]) {
     assert.ok(html.includes(vendor), `privacy policy must disclose ${vendor}`);
   }
 });

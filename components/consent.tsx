@@ -19,11 +19,21 @@ import { useEffect, useState } from "react";
 const KEY = "sanad-consent";
 const GA_ID = "G-GTX7XB2CKG";
 const CLARITY_ID = "xxjy84ucnt";
+const GTM_ID = "GTM-KN3FBX9H";
 
 type Choice = "granted" | "denied";
 
 function loadAnalytics() {
-  if (document.getElementById("ga4-script")) return;
+  if (document.getElementById("gtm-script")) return;
+
+  // Google Tag Manager. Loaded here rather than in <head> so it cannot fire a
+  // single tag before consent. The <noscript> iframe Google supplies is
+  // deliberately omitted: it would run for JS-disabled visitors, who can never
+  // reach this banner and therefore can never have consented.
+  const gtm = document.createElement("script");
+  gtm.id = "gtm-script";
+  gtm.text = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`;
+  document.head.appendChild(gtm);
 
   const ga = document.createElement("script");
   ga.id = "ga4-script";
