@@ -84,10 +84,10 @@ const EN: Record<LegalSlug, Doc> = {
         ],
       },
           {
-        h: "Analytics, cookies and consent",
+        h: "Analytics, advertising, cookies and consent",
         p: [
           "sanad.im loads no analytics until you accept them. On your first visit a banner asks; nothing is set beforehand except your choice itself, which is stored in your browser's local storage under the key sanad-consent so we do not ask again.",
-          "If you accept, Google Tag Manager (Google Ireland Limited) loads and may in turn load the tags configured in it. Alongside it: Google Analytics 4 (Google Ireland Limited), which sets cookies and records aggregate usage with IP anonymisation enabled; and Microsoft Clarity (Microsoft Corporation), which records session replays of how pages are used, including scrolling, clicks and form interaction. Clarity masks text entered into form fields by default.",
+          "If you accept, Google Tag Manager (Google Ireland Limited) loads and may in turn load the tags configured in it. Alongside it: Google Analytics 4 (Google Ireland Limited), which sets cookies and records aggregate usage with IP anonymisation enabled; and Microsoft Clarity (Microsoft Corporation), which records session replays of how pages are used, including scrolling, clicks and form interaction. Clarity masks text entered into form fields by default. The Meta Pixel (Meta Platforms Ireland Limited) also loads, so that we can measure which advertising brought a clinic to the site; it reports page views to Meta and may be used to build advertising audiences.",
           "If you decline, neither product loads and no analytics cookies are set. You can change your mind by clearing site data for sanad.im, which restores the banner.",
           "Neither analytics processor receives patient data. Patient conversations never touch this website; they happen on a clinic's own WhatsApp number and are governed by that clinic's Data Processing Agreement.",
           "Netlify (hosting) and Cloudflare (DNS, CDN and access control) process request metadata such as IP address and user agent in order to serve the site securely. This is necessary for delivery and is not consent-based.",
@@ -269,10 +269,10 @@ const AR: Record<LegalSlug, Doc> = {
         p: [`نحدّث هذه الصفحة عند تغيّر ممارساتنا، والتاريخ أعلاه هو علامة النسخة. آخر تحديث: ${LAST_UPDATED.ar}.`],
       },
           {
-        h: "التحليلات وملفات تعريف الارتباط والموافقة",
+        h: "التحليلات والإعلانات وملفات تعريف الارتباط والموافقة",
         p: [
           "لا يُحمّل موقع sanad.im أي أداة تحليلات قبل موافقتك. يظهر إشعار في زيارتك الأولى، ولا يُخزَّن شيء قبل ذلك سوى اختيارك نفسه في التخزين المحلي للمتصفح تحت المفتاح sanad-consent حتى لا نسألك مجددًا.",
-          "إذا وافقت، تُحمَّل أداة Google Tag Manager (Google Ireland Limited) وقد تُحمِّل بدورها الوسوم المُعدّة فيها. ومعها: Google Analytics 4 (Google Ireland Limited) وتضع ملفات تعريف ارتباط وتسجّل استخدامًا إجماليًا مع إخفاء عنوان IP؛ وMicrosoft Clarity (Microsoft Corporation) وتسجّل جلسات التصفح شاملة التمرير والنقر والتفاعل مع النماذج، مع إخفاء النصوص المُدخلة في حقول النماذج افتراضيًا.",
+          "إذا وافقت، تُحمَّل أداة Google Tag Manager (Google Ireland Limited) وقد تُحمِّل بدورها الوسوم المُعدّة فيها. ومعها: Google Analytics 4 (Google Ireland Limited) وتضع ملفات تعريف ارتباط وتسجّل استخدامًا إجماليًا مع إخفاء عنوان IP؛ وMicrosoft Clarity (Microsoft Corporation) وتسجّل جلسات التصفح شاملة التمرير والنقر والتفاعل مع النماذج، مع إخفاء النصوص المُدخلة في حقول النماذج افتراضيًا. كما يُحمَّل Meta Pixel (Meta Platforms Ireland Limited) لقياس الإعلانات التي جلبت العيادة إلى الموقع، وهو يُبلغ ميتا بمرّات عرض الصفحات وقد يُستخدم لبناء جمهور إعلاني.",
           "إذا رفضت، لا تُحمَّل أي منهما ولا توضع أي ملفات تعريف ارتباط تحليلية. ويمكنك تغيير رأيك بمسح بيانات الموقع، فيعود الإشعار للظهور.",
           "لا تتلقى أي من أداتي التحليلات بيانات مرضى. فمحادثات المرضى لا تمر عبر هذا الموقع إطلاقًا، بل تجري على رقم واتساب الخاص بالعيادة وتحكمها اتفاقية معالجة البيانات الموقّعة معها.",
           "تعالج Netlify (الاستضافة) وCloudflare (أسماء النطاقات وشبكة التوزيع والتحكم بالوصول) بيانات وصفية للطلبات مثل عنوان IP ونوع المتصفح لتقديم الموقع بأمان، وهذا ضروري للتشغيل ولا يعتمد على الموافقة.",
